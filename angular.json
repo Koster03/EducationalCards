@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "educational-cards:build:production"
+              "buildTarget": "educational-cards:build:production"
             },
             "development": {
-              "browserTarget": "educational-cards:build:development"
+              "buildTarget": "educational-cards:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "educational-cards:build"
+            "buildTarget": "educational-cards:build"
           }
         },
         "test": {

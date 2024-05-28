@@ -1,0 +1,39 @@
+<div class="page">
+  <ng-scrollbar
+    (clickOutside)="hide($event)"
+    [ngStyle]="{ width: menuWidth, padding: menuPadding }"
+  >
+    <main-menu class="menu"></main-menu>
+  </ng-scrollbar>
+
+  <img
+    src="../../../../assets/images/211688_forward_arrow_icon.svg"
+    class="arrow"
+    [ngStyle]="{ transform: rotate }"
+    (click)="toggleHeader()"
+  />
+
+  <div id="scrollDemo" class="container">
+    <add-card
+      [lastResult]="lastResult"
+      (startTest)="startTest()"
+      (savedCard)="saveCard($event)"
+    ></add-card>
+    <!-- <ng-scrollbar class="wrapper"> -->
+
+    <div class="wrapper pb">
+      @if ((cards | async)?.length) { } @for (card of shownCards; track
+      card._id) {
+      <app-card
+        [class.hidden]="(appState.isTestMode$ | async) && !card.inAnswer"
+        (updateBack)="updateCardBack($event, card._id)"
+        (onAnswer)="onCardAnswer($event)"
+        (onDelete)="deleteCard($event)"
+        class="cards"
+        [model]="card"
+      ></app-card>
+      }
+    </div>
+  </div>
+  <!-- </ng-scrollbar> -->
+</div>

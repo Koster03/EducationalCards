@@ -1,0 +1,62 @@
+.add-folder {
+  display: flex;
+  background: #fffae9;
+  border-radius: 13px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  //   transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s ease 0s;
+
+  &:hover {
+    background: #d2cec0;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.4s ease 0s;
+  }
+}
+
+.input-field {
+  //   height: 40px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.save-button {
+  display: flex;
+  border-radius: 0 13px 13px 0;
+  background-color: green;
+
+
+  img {
+    width: 46px;
+    filter: invert(100%) sepia(0%) saturate(19%) hue-rotate(352deg) brightness(106%) contrast(106%);
+  }
+}
+
+.no-span {
+  padding: 0;
+  justify-content: flex-start;
+  //   height: 30px;
+}
+
+.folder-name-input {
+  width: -webkit-fill-available;
+  border-radius: 13px 0 0 13px;
+  height: 40px;
+  font-size: 18px;
+  padding-left: 15px;
+  overflow: hidden;
+}
+
+.hide {
+  display: none;
+}

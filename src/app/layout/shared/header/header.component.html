@@ -1,0 +1,27 @@
+<nav class="header" (clickOutside)="hide($event)" [ngStyle]="{ height: headerHeight }">
+  <div class="logo">
+    <img class="logo" (click)="goToMain()" src="assets/images/logo.svg" />
+    <span (click)="goToMain()">EduCards</span>
+  </div>
+  <div class="my_container">
+    <div *ngIf="!isAuthenticated()" class="tabs">
+      <button [routerLink]="'/registration'" class="tab_item btn_orange">
+        <span class="sp">
+          <img src="assets/images/user-plus.svg" />
+          Регистрация
+        </span>
+      </button>
+      <button [routerLink]="'/registration'" class="tab_item btn_transparent">
+        <span class="sp"> Вход </span>
+      </button>
+    </div>
+    <div *ngIf="isAuthenticated()" class="tabs">
+      <button (click)="logout()" class="tab_item btn_orange">
+        <span class="sp">
+          Выйти
+        </span>
+      </button>
+    </div>
+  </div>
+</nav>
+<img src="../../../../assets/images/211688_forward_arrow_icon.svg" class="arrow" [ngStyle]="{ transform: rotate }" (click)="toggleHeader()">

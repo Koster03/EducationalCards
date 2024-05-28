@@ -1,0 +1,16 @@
+<div class="add-folder" [class.no-span]="!inputHidden" (click)="toggle()">
+  <span [class.hide]="!inputHidden">Добавить +</span>
+  @if (!inputHidden) {
+  <div class="input-field">
+    <input
+      #folderName
+      class="folder-name-input"
+      (click)="$event.stopPropagation()"
+      type="text"
+    />
+    <div class="save-button" (click)="createFolder.emit(folderName.value)">
+      <img src="../../../assets/images/confirm.svg" alt="" />
+    </div>
+  </div>
+  }
+</div>

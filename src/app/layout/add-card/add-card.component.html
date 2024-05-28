@@ -1,0 +1,85 @@
+<!-- <div class="card" tabindex="0">
+  @if (!(appState.isTestMode$ | async)) {
+  <button (click)="addCard($event)">Добавить +</button>
+  } @if ((appState.isTestMode$ | async)) {
+  <button (click)="appState.isTestMode$.next(false)">Завершить тест</button>
+  } @else {
+  <button (click)="appState.isTestMode$.next(true)">Начать тест</button>
+  }
+</div>
+
+<div
+  id="cardClone"
+  [ngStyle]="cloneStyle"
+  (clickOutside)="onBodyyClick($event)"
+  (transitionend)="onCloneTransitionEnd($event)"
+>
+  <div id="cloneFront" [ngStyle]="cloneFrontStyle">Добавить +</div>
+  <div id="cloneBack" [ngStyle]="cloneBackStyle">
+    <div class="add">
+      <div class="front">
+        <mat-form-field [style.fontSize]="16">
+          <mat-label>Вопрос</mat-label>
+          <textarea
+            [(ngModel)]="frontSide"
+            matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="15"
+          ></textarea>
+        </mat-form-field>
+      </div>
+      <div class="back">
+        <ckeditor [editor]="Editor" [(ngModel)]="model.editorData"></ckeditor>
+      </div>
+    </div>
+    <div class="footer">
+      <button (click)="saveCard()">Сохранить</button>
+    </div>
+  </div>
+</div> -->
+
+<div class="actions">
+  <mat-chip-listbox class="actions__chips" aria-label="Fish selection">
+    <mat-chip class="btn" (click)="addCard($event)" color="accent">Добавить карточку</mat-chip>
+    <mat-chip-option (click)="toggleMode()" class="btn" selected> {{(appState.isTestMode$ | async) ? "Завершить тест" : " Начать тест"}}</mat-chip-option>
+    <!-- <mat-chip-option color="accent" selected>Accent fish</mat-chip-option>
+    <mat-chip-option color="warn">Warn fish</mat-chip-option> -->
+  </mat-chip-listbox>
+
+  <span>Последний результат - {{ lastResult }}</span>
+</div>
+
+
+<div
+  id="cardClone"
+  [ngStyle]="cloneStyle"
+  (clickOutside)="onBodyyClick($event)"
+  (transitionend)="onCloneTransitionEnd($event)"
+>
+  <div id="cloneFront" [ngStyle]="cloneFrontStyle">Добавить +</div>
+  <div id="cloneBack" [ngStyle]="cloneBackStyle">
+    <div class="add">
+      <div class="front">
+        <mat-form-field [style.fontSize]="16">
+          <mat-label>Вопрос</mat-label>
+          <textarea
+            [(ngModel)]="frontSide"
+            matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="15"
+          ></textarea>
+        </mat-form-field>
+      </div>
+      <div class="back">
+        <ckeditor [editor]="Editor" [(ngModel)]="model.editorData"></ckeditor>
+      </div>
+    </div>
+    <div class="footer">
+      <button (click)="saveCard()">Сохранить</button>
+    </div>
+  </div>
+</div>

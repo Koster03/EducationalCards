@@ -1,0 +1,55 @@
+<div
+  class="card"
+  (click)="onCardClick($event)"
+  [ngClass]="{
+    'incorrect-card':
+      model.isCorrect !== null &&
+      model.isCorrect !== undefined &&
+      !model.isCorrect,
+    'correct-card': !!model.isCorrect && model.isCorrect
+  }"
+  tabindex="0"
+>
+  <!-- <ng-scrollbar> -->
+  {{ model.frontSide }}
+  <!-- </ng-scrollbar> -->
+</div>
+
+<div
+  id="cardClone"
+  [ngStyle]="cloneStyle"
+  (clickOutside)="onBodyyClick($event)"
+  (transitionend)="onCloneTransitionEnd($event)"
+>
+  <div id="cloneFront" [ngStyle]="cloneFrontStyle">
+    {{ model.frontSide }}
+  </div>
+  <div id="cloneBack" [ngStyle]="cloneBackStyle">
+    <ckeditor
+      #editor
+      class="withFooter"
+      [disabled]="!canEdit"
+      [class.hideTop]="!canEdit"
+      [editor]="Editor"
+      [(ngModel)]="ckModel.editorData"
+    ></ckeditor>
+    <div class="footer">
+      @if ((appState.isTestMode$ | async) && !!!model.isCorrect) {
+        @if (model.isCorrect == null || model.isCorrect == undefined) {
+          <button class="incorrect" (click)="onAnswered($event, false)">
+            Incorrect
+          </button>
+          <button class="correct" (click)="onAnswered($event, true)">
+            Correct
+          </button>
+        }
+      } @else if (!(appState.isTestMode$ | async)) { @if (canEdit) {
+      <button class="cancel" (click)="cancelEditing()">Отменить</button>
+      <button class="save" (click)="saveEditing()">Сохранить</button>
+      } @else {
+      <button class="edit" (click)="editCard()">Изменить</button>
+      <button class="delete" (click)="deleteCard($event)">Удалить</button>
+      } }
+    </div>
+  </div>
+</div>

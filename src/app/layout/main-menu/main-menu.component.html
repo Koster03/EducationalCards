@@ -1,0 +1,20 @@
+<add-folder (createFolder)="createFolder($event)"></add-folder>
+@for (folder of folders; track folder._id) {
+<div
+  class="folder"
+  [class.active]="folder._id === activeClass"
+  (click)="chooseFolder(folder._id)"
+>
+  <div class="folder__container">
+    <span> {{ folder.name }}</span>
+    <div
+      class="delete"
+      (click)="deleteFolder(folder._id); $event.stopPropagation()"
+    >
+      <img src="../../../assets/images/trash.svg" />
+    </div>
+  </div>
+</div>
+
+<!-- <app-card class="cards" [model]="card"></app-card> -->
+} @empty { Empty list of users }

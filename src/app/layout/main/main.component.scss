@@ -1,0 +1,86 @@
+.wrapper {
+  display: grid;
+  grid-gap: 40px;
+  // grid-gap: 120px;
+  width: -webkit-fill-available;
+  grid-template-columns: repeat(auto-fill, minmax(auto, 60px));
+
+  padding: 40px 120px 40px 40px;
+
+  ::ng-deep {
+    .ng-scroll-content {
+      padding-top: 30px;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  overflow-y: scroll;
+  padding-top: 30px;
+}
+
+.arrow {
+  cursor: pointer;
+  transition: transform 0.8s ease;
+  width: 30px;
+  height: 30px;
+  position: sticky;
+  z-index: 1;
+  filter: invert(93%) sepia(94%) saturate(0%) hue-rotate(248deg)
+    brightness(106%) contrast(106%);
+  left: 0;
+  top: 50%;
+}
+
+.page {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.menu {
+  // overflow-y: scroll;
+  border-top: 1px solid whitesmoke;
+  background-color: #656875;
+  transition: all 0.8s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  padding-bottom: 60px;
+}
+
+.hidden {
+  display: none;
+}
+
+.pb {
+  padding-bottom: 120px;
+}
+
+main-menu {
+  height: 100%;
+}
+
+ng-scrollbar {
+  transition: all 0.8s ease;
+  --scrollbar-size: 8px;
+  --scrollbar-thumb-color: whitesmoke;
+  --scrollbar-hover-size: 12px;
+  --scrollbar-track-color: rgba(0, 0, 0, 0.05);
+  --scrollbar-border-radius: 10px;
+  // height: -webkit-fill-available;
+
+  background-color: #83858c;
+
+  // height: 100%;
+
+  ::ng-deep {
+    .ng-scroll-content {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<div class="wrapper">
+    <div class="card">
+        <div class="card-front" [class.show-front]="!showFront">
+            <h3>Создать аккаунт</h3>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <mat-form-field>
+                    <input matInput formControlName="name" placeholder="Имя" type="text">
+                    <mat-error *ngIf="form.get('name')!.hasError('required')">Имя обязательно</mat-error>
+                  </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput formControlName="email" placeholder="Почта" type="email">
+                  <mat-error *ngIf="form.get('email')!.hasError('required')">Почта обязательна</mat-error>
+                  <mat-error *ngIf="form.get('email')!.hasError('email')">Неверный формат email</mat-error>
+                </mat-form-field>
+              
+                <mat-form-field>
+                  <input matInput formControlName="password" placeholder="Пароль" type="password">
+                  <mat-error *ngIf="form.get('password')!.hasError('required')">Пароль обязателен</mat-error>
+                  <mat-error *ngIf="form.get('password')!.hasError('minlength')">Пароль должен содержать минимум 8 символов</mat-error>
+                </mat-form-field>
+              
+                <button mat-raised-button color="primary" type="submit">Зарегистрироваться</button>
+                <div class="to-login">
+                    <span>Уже есть аккаунт?</span>
+                    <a (click)="flipCard()">Войти</a>
+                </div>
+            </form>
+        </div>
+        <div class="card-back" [class.show-front]="!showFront">
+            <h3>Вход в аккаунт</h3>
+            <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+                <mat-form-field>
+                  <input matInput formControlName="email" placeholder="Почта" type="email">
+                  <mat-error *ngIf="authForm.get('email')!.hasError('required')">Почта обязательна</mat-error>
+                  <mat-error *ngIf="authForm.get('email')!.hasError('email')">Неверный формат email</mat-error>
+                </mat-form-field>
+              
+                <mat-form-field>
+                  <input matInput formControlName="password" placeholder="Пароль" type="password">
+                  <mat-error *ngIf="authForm.get('password')!.hasError('required')">Пароль обязателен</mat-error>
+                  <mat-error *ngIf="authForm.get('password')!.hasError('minlength')">Пароль должен содержать минимум 8 символов</mat-error>
+                </mat-form-field>
+              
+                <button mat-raised-button color="primary" type="submit">Войти</button>
+                <div class="to-login">
+                    <span>Нет аккаунта?</span>
+                    <a (click)="flipCard()">Зарегистрироваться</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

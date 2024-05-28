@@ -1,0 +1,81 @@
+.ck-editor__editable_inline {
+  min-height: 500px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  button {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 0;
+  }
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 400px;
+  max-height: 400px;
+}
+
+:host ::ng-deep ckeditor .ck-toolbar_grouping {
+  border-radius: 20px 20px 0 0;
+}
+
+.add {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.front,
+.back {
+  width: 50%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  //   background: white;
+
+  button {
+    padding: 9px;
+    border-radius: 20px;
+    border: none;
+    position: relative;
+    font-size: 18px;
+    background-color: #ffbc42;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+}
+
+#cloneBack {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+.actions {
+  padding-left: 35px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  span {
+    color: white;
+    font-size: 16px;
+  }
+
+  &__chips .btn {
+    cursor: pointer;
+  }
+}
